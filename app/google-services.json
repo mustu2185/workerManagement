@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "164686392297",
+    "firebase_url": "https://projectmanagement-a159b.firebaseio.com",
+    "project_id": "projectmanagement-a159b",
+    "storage_bucket": "projectmanagement-a159b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164686392297:android:5939fa86e9f4fc35",
+        "android_client_info": {
+          "package_name": "com.anahad.projectmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164686392297-r18pko1sd87tchjloa5764hiqmo5h9md.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anahad.projectmanagement",
+            "certificate_hash": "a3af7a61c57ca26218786078be9bae34b0a14c0b"
+          }
+        },
+        {
+          "client_id": "164686392297-cu2anjcj9klep1l444534h0rm2oiac9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZuiURD3KigbJW__5Qa7ML0iRGoHltIE8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164686392297-cu2anjcj9klep1l444534h0rm2oiac9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
