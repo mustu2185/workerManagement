@@ -32,7 +32,7 @@ public class ProjectAdapter extends FirestoreRecyclerAdapter<Project,ProjectAdap
         Log.d(TAG, "onBindViewHolder: Mustafa: creating card for " + model.getName());
         holder.nameTextView.setText(model.getName());
         int households = model.getHouseholds().size();
-        int users = model.getMembers().size();
+        int users = model.getMembers().size() + model.getNonMembers().size();
         String household_string = "Household";
         if (households>1) household_string =household_string+"s";
         String user_string = "User";

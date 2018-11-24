@@ -3,11 +3,11 @@ package com.anahad.projectmanagement;
 import java.util.ArrayList;
 
 public class Project {
-    String name;
-    ArrayList<String> households;
-    ArrayList<String> members;
-    ArrayList<String> nonMembers;
-    ArrayList<String> workers;
+    private String name;
+    private ArrayList<String> households;
+    private ArrayList<String> members;
+    private ArrayList<String> nonMembers;
+    private ArrayList<String> workers;
 
     public ArrayList<String> getNonMembers() {
         return nonMembers;

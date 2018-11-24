@@ -3,9 +3,9 @@ package com.anahad.projectmanagement;
 import java.util.ArrayList;
 
 public class HouseHold {
-    String name;
-    ArrayList<String> members;
-    ArrayList<String> projects;
+    private String name;
+    private ArrayList<String> members;
+    private ArrayList<String> projects;
     private ArrayList<String> nonMembers;
 
     public HouseHold(String name) {

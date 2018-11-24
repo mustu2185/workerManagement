@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    String name;
-    String mobile;
-    String username;
-    String password;
-    String email;
-    ArrayList<String> households;
-    ArrayList<String> projects;
-    String role;
+    private String name;
+    private String mobile;
+    private String username;
+    private String password;
+    private String email;
+    private ArrayList<String> households;
+    private ArrayList<String> projects;
+    private String role;
 
     public User() {
         initialize();
