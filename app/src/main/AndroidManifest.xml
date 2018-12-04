@@ -9,14 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignIn">
+        <activity android:name=".MobileNumberAuth">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProjectView"></activity>
+        <activity android:name=".ProjectListView" />
+        <activity android:name=".VerifyPhoneActivity" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".HouseHoldList" />
+        <activity android:name=".HouseHoldView" />
+        <activity android:name=".ProjectNewView" />
+        <activity android:name=".ProjectView" />
+        <activity android:name=".ProjectUserListView"></activity>
     </application>
 
 </manifest>

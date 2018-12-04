@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProjectNewView">
+    <EditText
+        android:id="@+id/new_project_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter name of project"
+        android:textAlignment="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:inputType="textPersonName"
+        />
+    <EditText
+        android:id="@+id/new_project_description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/new_project_name_text_view"
+        android:hint="Enter description of project"
+        android:textAlignment="center"
+        android:inputType="textMultiLine"
+        />
+</android.support.constraint.ConstraintLayout>

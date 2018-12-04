@@ -4,10 +4,19 @@ import java.util.ArrayList;
 
 public class Project {
     private String name;
+    private String description;
     private ArrayList<String> households;
     private ArrayList<String> members;
     private ArrayList<String> nonMembers;
     private ArrayList<String> workers;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public ArrayList<String> getNonMembers() {
         return nonMembers;

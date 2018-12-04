@@ -1,31 +1,52 @@
 package com.anahad.projectmanagement;
 
-import android.support.constraint.solver.widgets.ConstraintAnchor;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class User {
     private String name;
     private String mobile;
-    private String username;
+    private String userid;
     private String password;
     private String email;
     private ArrayList<String> households;
-    private ArrayList<String> projects;
-    private String role;
+    private ArrayList<String> memberInProjects;
+    private ArrayList<String> workerInProjects;
+
+    public ArrayList<String> getHouseholds() {
+        return households;
+    }
+
+    public void setHouseholds(ArrayList<String> households) {
+        this.households = households;
+    }
+
+    public ArrayList<String> getMemberInProjects() {
+        return memberInProjects;
+    }
+
+    public void setMemberInProjects(ArrayList<String> memberInProjects) {
+        this.memberInProjects = memberInProjects;
+    }
+
+    public ArrayList<String> getWorkerInProjects() {
+        return workerInProjects;
+    }
+
+    public void setWorkerInProjects(ArrayList<String> workerInProjects) {
+        this.workerInProjects = workerInProjects;
+    }
 
     public User() {
         initialize();
 
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getPassword() {
@@ -44,17 +65,9 @@ public class User {
         this.email = email;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public User(String username, String name, String mobile) {
+    public User(String userid, String name, String mobile) {
         initialize();
-        this.username = username;
+        this.userid = userid;
         this.name = name;
         this.mobile = mobile;
     }
@@ -62,7 +75,8 @@ public class User {
     private void initialize()
     {
         households = new ArrayList<String>();
-        projects = new ArrayList<String>();
+        memberInProjects = new ArrayList<String>();
+        workerInProjects = new ArrayList<String>();
     }
 
     public String getName() {
@@ -91,20 +105,36 @@ public class User {
         households.remove(household);
     }
 
-    public void addProject(String project)
+    public void addProjectAsMember(String project)
     {
-        projects.add(project);
+        memberInProjects.add(project);
     }
 
-    public void removeProject(String project)
+    public void removeProjectAsMember(String project)
     {
-        projects.remove(project);
+        memberInProjects.remove(project);
     }
 
     public boolean isMemberOfProject(String project)
     {
-        return projects.contains(project);
+        return memberInProjects.contains(project);
     }
+
+    public void addProjectAsWorker(String project)
+    {
+        workerInProjects.add(project);
+    }
+
+    public void removeProjectAsWorker(String project)
+    {
+        workerInProjects.remove(project);
+    }
+
+    public boolean isWorkerOfProject(String project)
+    {
+        return workerInProjects.contains(project);
+    }
+
 
     public boolean isMemberOfHousehold(String household)
     {

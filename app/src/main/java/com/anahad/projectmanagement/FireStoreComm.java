@@ -3,6 +3,8 @@ package com.anahad.projectmanagement;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -48,29 +50,25 @@ public class FireStoreComm {
         return households;
     }
 
-    public DocumentReference getUserDocument(String user)
-    {
+    public DocumentReference getUserDocument(String user) {
         return users.document(user);
     }
 
-    public DocumentReference getHouseholdDocument(String household)
-    {
+    public DocumentReference getHouseholdDocument(String household) {
         return households.document(household);
     }
 
-    public DocumentReference getProjectDocument(String project)
-    {
+    public DocumentReference getProjectDocument(String project) {
         return projects.document(project);
     }
 
-    public void addProject(Project project)
-    {
+    public void addProject(Project project) {
         projects.document(project.getName()).set(project);
     }
 
     public void addUser(User user)
     {
-        users.document(user.getUsername()).set(user);
+        users.document(user.getUserid()).set(user);
     }
 
     public void addHousehold(HouseHold household)
@@ -108,15 +106,39 @@ public class FireStoreComm {
     }
 
     public void retrieve(CollectionReference collection, String name, Context context, final OnCompleteCallbackInterface callback, final Class<?> _class) {
-        final ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Processing ...");
-        progressDialog.show();
+        ProgressDialog progressDialogTemp = null;
+        if (context == null) {
+            progressDialogTemp = new ProgressDialog(context);
+            progressDialogTemp.setMessage("Processing ...");
+            progressDialogTemp.show();
+        }
+        final ProgressDialog progressDialog = progressDialogTemp;
         Task<DocumentSnapshot> documentSnapshotTask = collection.document(name).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 progressDialog.dismiss();
                 callback.onComplete();
-                callback.onCompleteWithObject(task.getResult().toObject(_class));
+                if (task.isSuccessful())
+                    callback.onCompleteWithObject(task.getResult().toObject(_class));
+                else
+                    callback.onCompleteWithObject(null);
+            }
+        });
+    }
+
+    public void addProjectAsMemberInCurrentUser(final String name) {
+        users.document(Session.getInstance().firebaseUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful())
+                {
+
+                    task.getResult().toObject(User.class).addProjectAsMember(name);
+                }
+                else
+                {
+                    Log.d("Mustafa: ", "addProjectAsMemberInCurrentUser: User update unsuccessful");
+                }
             }
         });
     }
